@@ -21,7 +21,9 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     ##############################
-    "simple_rest_todo.todo_rest"
+    "rest_framework",
+    ###################
+    "simple_rest_todo.todo_rest",
 ]
 
 MIDDLEWARE = [
@@ -39,8 +41,7 @@ ROOT_URLCONF = "simple_rest_todo.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [BASE_DIR / 'templates']
-        ,
+        "DIRS": [BASE_DIR / "templates"],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -56,13 +57,13 @@ TEMPLATES = [
 WSGI_APPLICATION = "simple_rest_todo.wsgi.application"
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': env("DB_NAME"),
-        'USER': env("DB_USER"),
-        'PASSWORD': env("DB_PASS"),
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": env("DB_NAME"),
+        "USER": env("DB_USER"),
+        "PASSWORD": env("DB_PASS"),
+        "HOST": "127.0.0.1",
+        "PORT": "5432",
     }
 }
 

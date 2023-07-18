@@ -1,3 +1,10 @@
 from django.contrib import admin
+from .models import TaskToDo
 
-# Register your models here.
+
+@admin.register(TaskToDo)
+class TaskToDoAdmin(admin.ModelAdmin):
+    list_display = (
+        "title",
+        "completed",
+    )
