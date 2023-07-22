@@ -3,36 +3,36 @@ from .models import TaskToDo
 from .serializers import TaskSerializer
 
 
-class BasicTaskView(generics.GenericAPIView):
+class TaskCreateView(
+    generics.CreateAPIView
+):  # "Create" operation (C) - It handles the POST request !
     queryset = TaskToDo.objects.all()
     serializer_class = TaskSerializer
 
 
-class TaskCreateView(
-    BasicTaskView, generics.CreateAPIView
-):  # "Create" operation (C) - It handles the POST request !
-    pass
-
-
 class TaskListView(
-    BasicTaskView, generics.ListAPIView
+    generics.ListAPIView
 ):  # Read operation (R) - It handles the GET request !
-    pass
+    queryset = TaskToDo.objects.all()
+    serializer_class = TaskSerializer
 
 
 class TaskUpdateView(
-    BasicTaskView, generics.UpdateAPIView
+    generics.UpdateAPIView
 ):  # "Update" operation (U) - It handles the PUT and PATCH requests !
-    pass
+    queryset = TaskToDo.objects.all()
+    serializer_class = TaskSerializer
 
 
 class TaskDestroyView(
-    BasicTaskView, generics.DestroyAPIView
+    generics.DestroyAPIView
 ):  # "Delete/Destroy" operation (D) -  It handles the DELETE request !
-    pass
+    queryset = TaskToDo.objects.all()
+    serializer_class = TaskSerializer
 
 
 class TaskRetrieveView(
     generics.RetrieveAPIView
 ):  # "Read" operation (R) for a SINGLE ENTITY - handles GET again !!!
-    pass
+    queryset = TaskToDo.objects.all()
+    serializer_class = TaskSerializer

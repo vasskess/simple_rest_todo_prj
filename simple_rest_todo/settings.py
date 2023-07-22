@@ -1,9 +1,9 @@
 import environ
-from pathlib import Path
 
 env = environ.Env()
 environ.Env.read_env()
 
+from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
