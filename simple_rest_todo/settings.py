@@ -1,9 +1,8 @@
 import environ
+from pathlib import Path
 
 env = environ.Env()
 environ.Env.read_env()
-
-from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -22,6 +21,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     ##############################
     "rest_framework",
+    "drf_spectacular",
     ###################
     "simple_rest_todo.todo_rest",
 ]
@@ -93,3 +93,11 @@ USE_TZ = True
 STATIC_URL = "static/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+REST_FRAMEWORK = {
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
+}
+
+SPECTACULAR_SETTINGS = {
+    "TITLE": "Django Simple Rest Todo"
+}
